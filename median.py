@@ -13,8 +13,8 @@ def checkEven():
 
 
 def numbersEven():
-    half = len(numbers)/2
-    sum = numbers[math.ceil(half)] + numbers[math.floor(half)]
+    half = int(len(numbers)/2)
+    sum = numbers[half] + numbers[half-1]
     printMedian(sum/2)
 
 
