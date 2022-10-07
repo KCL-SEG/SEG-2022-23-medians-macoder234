@@ -1,35 +1,40 @@
 """Median calculator."""
 """ENTER YOUR SOLUTION HERE!"""
 
+
+
+
 import math
-
-
-
-while True:
-    try:
-        print("Enter a list of numbers separated by commas: ")
-        numbers = [float(value) for value in input().split(",")]
-    except ValueError:
-        print("Some input could not be converted to a number!")
-    else:
-        break
-print(numbers)
-
-def checkEven(): 
-    if len(numbers)%2 == 2:
+def checkEven():
+    if len(numbers) % 2 == 0:
         numbersEven()
-    else: 
+    else:
         numbersOdd()
+
 
 def numbersEven():
     half = len(numbers)/2
     sum = numbers[math.ceil(half)] + numbers[math.floor(half)]
     printMedian(sum/2)
 
+
 def numbersOdd():
     half = len(numbers)/2
-    printMedian(numbers[half])
+    printMedian(numbers[math.floor(half)])
+
 
 def printMedian(median):
-    print(f"Median is {median}")
+    print(median)
+    return median
 
+
+while True:
+    try:
+        print("Enter a list of numbers separated by commas: ")
+        numbers = [float(value) for value in input().split(",")]
+        checkEven()
+    except ValueError:
+        print("Some input could not be converted to a number!")
+    else:
+        break
+print(numbers)
