@@ -1,6 +1,10 @@
 """Median calculator."""
 """ENTER YOUR SOLUTION HERE!"""
 
+import math
+
+
+
 while True:
     try:
         print("Enter a list of numbers separated by commas: ")
@@ -10,3 +14,22 @@ while True:
     else:
         break
 print(numbers)
+
+def checkEven(): 
+    if len(numbers)%2 == 2:
+        numbersEven()
+    else: 
+        numbersOdd()
+
+def numbersEven():
+    half = len(numbers)/2
+    sum = numbers[math.ceil(half)] + numbers[math.floor(half)]
+    printMedian(sum/2)
+
+def numbersOdd():
+    half = len(numbers)/2
+    printMedian(numbers[half])
+
+def printMedian(median):
+    print(f"Median is {median}")
+
